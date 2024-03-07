@@ -1,0 +1,38 @@
+{
+  "name": "wp-dashbard-widget/wp-dashbard-widget",
+  "description": "A WordPress plugin with react UI on dashboard",
+  "homepage": "https://github.com/AshlinRejo",
+  "license": "GPL-2.0+",
+  "authors": [
+	{
+	  "name": "Ashlin Rejo",
+	  "email": "ashlinrejo1@gmail.com",
+	  "homepage": "https://github.com/AshlinRejo"
+	}
+  ],
+  "require-dev": {
+	  "wp-coding-standards/wpcs": "^3.0"
+  },
+  "autoload": {
+	"psr-4": {
+	  "WPDWidget\\": "app/"
+	}
+  },
+  "autoload-dev": {},
+  "scripts": {
+	"make-pot": "wp i18n make-pot . languages/wp-dashbard-widget.pot --skip-js --exclude=vendor --domain=wp-dashbard-widget",
+    "phpcs": "vendor/bin/phpcs",
+    "phpcs:fix": "vendor/bin/phpcbf",
+    "stylelint": "stylelint 'assets/css/*'",
+    "stylelint:fix": "npm run stylelint -- --fix",
+    "eslint": "eslint src/*",
+    "eslint:fix": "eslint --fix src/*",
+    "build": "npm run build",
+    "precommit": "composer run-script phpcs:fix && composer run-script stylelint:fix && composer run-script eslint:fix && composer run-script make-pot && composer run-script build"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
