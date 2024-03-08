@@ -3,3 +3,6 @@ composer.lock
 node_modules
 package-lock.json
 assets/js
+languages
+wp-dashboard-widget
+*.zip
