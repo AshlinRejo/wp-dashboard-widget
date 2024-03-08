@@ -1,6 +1,5 @@
 import React from 'react';
-
-/* global wPDWA */
+import GraphWidget from './components/GraphWidget';
 
 /**
  * App main file.
@@ -10,9 +9,7 @@ import React from 'react';
 const App = () => {
 	return (
 		<div className="wpdw-graph-widget-container">
-			<h1 className="wp-heading-inline">
-				{ wPDWA.title_text }
-			</h1>
+			<GraphWidget />
 		</div>
 	);
 };

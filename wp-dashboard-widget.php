@@ -39,5 +39,7 @@ if ( ( new WPD_Widget_Requirement_Checks() )->check() ) {
 	// While activate plugin.
 	register_activation_hook( __FILE__, array( WPDWidget\Admin\Installation::instance(), 'activated' ) );
 
+	register_deactivation_hook( __FILE__, array( WPDWidget\Admin\Installation::instance(), 'deactivated' ) );
+
 	add_action( 'plugins_loaded', array( WPDWidget\Plugin::instance(), 'load' ) );
 }

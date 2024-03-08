@@ -53,6 +53,7 @@ class Plugin {
 		}
 		$this->load_text_domain();
 		$this->register_events();
+		$this->register_api();
 		$this->loaded = true;
 	}
 
@@ -73,5 +74,17 @@ class Plugin {
 	 * */
 	private function load_text_domain() {
 		load_plugin_textdomain( 'wp-dashbard-widget', false, 'wp-dashbard-widget/languages/' );
+	}
+
+	/**
+	 * Register APIs
+	 * */
+	private function register_api() {
+		$api_classes = array(
+			'\WPDWidget\API\Chart',
+		);
+		foreach ( $api_classes as $api_class ) {
+			add_action( 'rest_api_init', array( new $api_class(), 'register_routes' ) );
+		}
 	}
 }

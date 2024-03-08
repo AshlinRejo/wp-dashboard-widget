@@ -1,0 +1,51 @@
+
+div.wpdw-graph-widget-header h3 {
+	display: inline-block;
+	padding-top: 5px !important;
+}
+
+select.wpdw-graph-widget-selectbox {
+	float: right;
+}
+
+.wpdw-loader {
+	display: none;
+}
+
+.wpdw-loader.loading {
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 0.1;
+	background: #fff;
+	text-align: center;
+}
+
+.wpdw-loader-span {
+	width: 48px;
+	height: 48px;
+	border: 5px solid #e27730;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	top: 45%;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.wpdw-graph-container .recharts-wrapper {
+	max-width: 100%;
+}
