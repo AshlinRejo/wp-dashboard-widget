@@ -7,6 +7,7 @@
 
 namespace WPDWidget\API;
 
+use WPDWidget\Helper\Common;
 use WPDWidget\Model\Analytics;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,10 +33,22 @@ class Chart extends \WP_REST_Controller {
 				array(
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_items' ),
-					'permission_callback' => '__return_true',
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
 				),
 			)
 		);
+	}
+
+	/**
+	 * Check permission.
+	 *
+	 * @param \WP_REST_Request $request Full details about the request.
+	 */
+	public function get_items_permissions_check( $request ) {
+		if ( Common::is_administrator() ) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

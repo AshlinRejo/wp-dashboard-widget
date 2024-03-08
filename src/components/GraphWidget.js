@@ -30,8 +30,10 @@ const GraphWidget = () => {
 		axios
 			.get( wPDWA._rest_url + 'chart', {
 				params: {
-					_ajax_nonce: wPDWA._ajax_nonce,
 					last: lastXdays,
+				},
+				headers: {
+					'X-WP-Nonce': wPDWA._ajax_nonce,
 				},
 			} )
 			.then( function ( response ) {

@@ -65,7 +65,7 @@ class Dashboard {
 				'wp-dashbard-widget-admin',
 				'wPDWA',
 				array(
-					'_ajax_nonce'              => wp_create_nonce( 'wp-dashbard-widget-ajax-nonce' ),
+					'_ajax_nonce'              => wp_create_nonce( 'wp_rest' ),
 					'_rest_url'                => get_rest_url() . 'wp-dashboard-widget/v1/',
 					'ajax_url'                 => admin_url( 'admin-ajax.php' ),
 					'title_text'               => esc_html__( 'Graph Widget', 'wp-dashbard-widget' ),
